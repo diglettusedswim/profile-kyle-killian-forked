@@ -1,0 +1,203 @@
+<!-------MOD LOG-------------------------------
+---------DATE: 4/8/2020------------------------
+---------Found template, changed it to be------
+---------my own with own pictures and details--
+---------DATE: 4/9/2020------------------------
+---------Change type speed for some javascript-
+---------in code and changed colors to be a----
+---------darker theam------------------------->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="My personal portfolio website" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./favicon/digglett.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./favicon/digglett.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./favicon/digglett.png"
+    />
+    <link rel="manifest" href="./favicon/site.webmanifest" />
+    <title>Kyle Killian</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+
+  <body>
+    <nav id="nav" class="hideNav">
+      <ul class="navbar">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </nav>
+    <div id="home">
+      <div class="showcase">
+        <div class="container">
+          <h1 id="name">
+            Kyle Killian:&nbsp
+            <!--Need this to create space between words-->
+            <span
+              class="txt-type"
+              data-wait="1500"
+              data-words='["Web Developer", "Student", "Programmer", "Web Designer",  "YouTuber"]'
+            >
+            </span>
+          </h1>
+          <h2 id="welcome">
+            Contact me:
+            <a href="mailto:kylekillian@my.cwi.edu" target="_top"
+              >kylekillian@my.cwi.edu</a
+            >
+          </h2>
+        </div>
+      </div>
+    </div>
+
+    <div id="projects">
+      <h2 class="projectsHeader">Projects</h2>
+      <div id="img">
+        <div class="img">
+          <a href="https://pi3m5.csb.app/" target="_blank" rel="noreferrer"
+            ><img src="./img/pokedex.png" alt="pokedex"
+          /></a>
+          <h3>Pokedex</h3>
+          <p>The original 150 pokemon</p>
+          <p class="p-border">Built with React, javascript, and Node!</p>
+        </div>
+        <div class="img">
+          <a href="https://27slu.csb.app/" target="_blank" rel="noreferrer">
+            <img
+              src="./img/hOdd-spoon-3368750_1920.jpg"
+              alt="Display NASAs Picture of the Day"
+          /></a>
+          <h3>Herb Website</h3>
+          <p>Idea from Dungeons and Dragons</p>
+          <p class="p-border">Built with Vue!</p>
+        </div>
+      </div>
+    </div>
+
+    <!--Social Media Break-->
+
+    <div id="projects">
+      <h2 class="projectsHeader">Social Media</h2>
+      <div id="img">
+        <div class="img">
+          <a
+            href="https://www.youtube.com/channel/UCL1kpxWEUvac2tjLnxWHoxw/featured"
+            target="_blank"
+            rel="noreferrer"
+            ><img src="./img/youtube.png" alt="Youtube page"
+          /></a>
+          <h3>Youtube Channel</h3>
+          <p>Youtube Subscribers 23</p>
+        </div>
+
+        <div class="img">
+          <a
+            href="https://github.com/diglettusedswim"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img src="./img/github.png" alt="github profile"
+          /></a>
+          <h3>Github</h3>
+          <p>My profile on GitHub</p>
+        </div>
+      </div>
+    </div>
+
+    <!--About me break-->
+    <div id="about">
+      <div class="aboutClass">
+        <h2>About Me</h2>
+        <p>
+          I am currently working on getting my computer scince degree from
+          College of Western idaho.
+        </p>
+        <p>
+          I am a determined and self motivated Developer learning to be
+          specializing in Languages/Frameworks such as JavaScript, React, Vue,
+          Node, Bootstrap, HTML, and CSS.
+        </p>
+      </div>
+    </div>
+
+    <div id="container">
+      <main id="main">
+        <!--Start of Form-->
+        <form
+          action="mailto:kylekillian@my.cwi.edu?subject=Personal%20Portfolio%20Mail"
+          enctype="text/plain"
+          method="POST"
+        >
+          <label for="Name">Name</label><br />
+          <input type="text" name="Name" size="50" id="Name" /><br /><br />
+
+          <label for="Email">Email</label><br />
+          <input type="text" name="Email" size="50" id="Email" /><br /><br />
+
+          <label for="Name">Reason for Email</label><br />
+          <p>
+            <input type="radio" name="Reason" value="Work" /> Work
+            <input type="radio" name="Reason" value="Comment" /> Comment
+            <input type="radio" name="Reason" value="Other" /> Other
+          </p>
+
+          <label>Subject</label><br />
+          <select name="Subject">
+            <option value="Class">Class</option>
+            <option value="Work">Work</option>
+            <option value="Job Offer">Job Offer</option>
+            <option value="Comment">Comment</option>
+            <option value="Other">Other</option> </select
+          ><br />
+
+          <label>Enter your comments</label><br />
+          <textarea cols="100" rows="10" name="comment"></textarea><br /><br />
+
+          <input type="submit" id="submit" value="Send" class="btn" />
+        </form>
+        <!--End of Form-->
+      </main>
+    </div>
+
+    <!--Footer Break-->
+
+    <footer id="footer" class="hideNav">
+      <p>
+        Find me on
+        <a
+          href="https://github.com/diglettusedswim"
+          target="_blank"
+          rel="noreferrer"
+          >GitHub</a
+        >
+        and
+        <a
+          href="https://www.linkedin.com/in/kyle-killian-9640141a6/"
+          target="_blank"
+          rel="noreferrer"
+          >LinkedIn</a
+        >
+        or contact me
+        <a href="contact.html" target="_blank" rel="noreferrer">here!</a>
+      </p>
+    </footer>
+
+    <script src="main.js"></script>
+  </body>
+</html>
