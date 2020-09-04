@@ -1,8 +1,8 @@
 #******************************************************************************************************
 #Script to create ejdesign database
 #Name			Date			Description
-#Jenny			8/28/2020		Inital deployment
-#
+#Kyle			8/28/2020		Inital deployment
+#Kyle                   9/3/2020                Added new user
 #
 #******************************************************************************************************
 
@@ -21,11 +21,10 @@ CREATE TABLE IF NOT EXISTS information
 CREATE TABLE IF NOT EXISTS visitor
 (
     visitor_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL,
-    RFM VARCHAR(255) NOT NULL,
-    subject VARCHAR(255) NOT NULL,
-    comments VARCHAR(255),
+    visitor_name VARCHAR(255) NOT NULL,
+    visitor_email VARCHAR(255) NOT NULL,
+    visitor_subject VARCHAR(255) NOT NULL,
+    visitor_comments VARCHAR(255),
     vist_date DATETIME NOT NULL,
     userID INT NOT NULL,
     FOREIGN KEY (userID) REFERENCES information (userID)
@@ -179,22 +178,28 @@ INSERT INTO visitor
 VALUES
 ('15', 'Desi', 'Desi@hotmail.com', 'job', 'job', 'NA', NOW(), '15');
 INSERT INTO visitor
-(visitor_id, name, email, RFM, subject, comments, vist_date, userID)
+(visitor_id, name, email, subject, comments, vist_date, userID)
 VALUES
 ('16', 'Zach', 'Zach@hotmail.com', 'job', 'job', 'NA', NOW(), '16');
 INSERT INTO visitor
-(visitor_id, name, email, RFM, subject, comments, vist_date, userID)
+(visitor_id, name, email, subject, comments, vist_date, userID)
 VALUES
 ('17', 'Izzy', 'Izzy@hotmail.com', 'job', 'job', 'NA', '5/20/2020', '17');
 INSERT INTO visitor
-(visitor_id, name, email, RFM, subject, comments, vist_date, userID)
+(visitor_id, name, email, subject, comments, vist_date, userID)
 VALUES
 ('18', 'Brian', 'Brian@hotmail.com', 'job', 'job', 'NA', NOW(), '18');
 INSERT INTO visitor
-(visitor_id, name, email, RFM, subject, comments, vist_date, userID)
+(visitor_id, name, email, subject, comments, vist_date, userID)
 VALUES
 ('19', 'Allisa', 'Allisa@hotmail.com', 'job', 'job', 'NA', NOW(), '19');
 INSERT INTO visitor
-(visitor_id, name, email, RFM, subject, comments, vist_date, userID)
+(visitor_id, name, email, subject, comments, vist_date, userID)
 VALUES
 ('20', 'Chris', 'Chris@hotmail.com', 'job', 'job', 'NA', NOW(), '20');
+
+use portfolio;
+GRANT SELECT, INSERT, UPDATE
+ON portfolio.*
+TO recrute_user
+IDENTIFIED by 'Pa$$w0rd';
