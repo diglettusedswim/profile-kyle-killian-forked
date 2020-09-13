@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS information
 CREATE TABLE IF NOT EXISTS visitor
 (
     visitor_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    visitor_name VARCHAR(255) NOT NULL,
+    name VARCHAR(255) NOT NULL,
     visitor_email VARCHAR(255) NOT NULL,
     visitor_subject VARCHAR(255) NOT NULL,
     visitor_comments VARCHAR(255),
@@ -199,7 +199,7 @@ VALUES
 ('20', 'Chris', 'Chris@hotmail.com', 'job', 'job', 'NA', NOW(), '20');
 
 use portfolio;
-GRANT SELECT, INSERT, UPDATE
+GRANT SELECT, INSERT, UPDATE, DELETE
 ON portfolio.*
 TO recrute_user
 IDENTIFIED by 'Pa$$w0rd';
