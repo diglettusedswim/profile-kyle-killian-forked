@@ -1,3 +1,9 @@
+<!-------MOD LOG-------------------------------
+---------DATE: 9/18/2020-----------------------
+---------moved over getEmployees---------------
+---------as a function-------------------------
+---------same as add visitor and---------------
+---------delete------------------------------->
 <?php
 $visitor_comments = filter_input(INPUT_POST, 'Comments');
 $visitor_email = filter_input(INPUT_POST, 'Email');
@@ -5,7 +11,7 @@ $visitor_name = filter_input(INPUT_POST, 'Name');
 $visitor_subject = filter_input(INPUT_POST, 'Subject');
 
 
- /*echo "Fields: " . $visitor_name ." " . $visitor_email ." " . $visitor_comments ." " . $visitor_subject;*/
+/* echo "Fields: " . $visitor_name ." " . $visitor_email ." " . $visitor_comments ." " . $visitor_subject; */
 
 // Validate inputs
 if ($visitor_name == null || $visitor_email == null ||
@@ -15,32 +21,36 @@ if ($visitor_name == null || $visitor_email == null ||
     echo "Form Data Error: " . $error;
     exit();
 } else {
-    $dsn = 'mysql:host=localhost;dbname=portfolio';
-    $username = 'recrute_user';
-    $password = 'Pa$$w0rd';
+//    $dsn = 'mysql:host=localhost;dbname=portfolio';
+//    $username = 'recrute_user';
+//    $password = 'Pa$$w0rd';
+//
+//    try {
+//        $db = new PDO($dsn, $username, $password);
+//    } catch (PDOException $e) {
+//        $error_message = $e->getMessage();
+//        /* include('database_error.php'); */
+//        echo "DB Error: " . $error_message;
+//        exit();
+//    }
 
-    try {
-        $db = new PDO($dsn, $username, $password);
-    } catch (PDOException $e) {
-        $error_message = $e->getMessage();
-        /* include('database_error.php'); */
-        echo "DB Error: " . $error_message;
-        exit();
-    }
+    require_once('.\database\database.php');
+    require_once('.\database\visitor.php');
 
-    // Add the product to the database  
-    $query = 'INSERT INTO visitor
-                         (comments, email, name, subject, vist_date, userID)
-                      VALUES
-                         (:comments, :email, :name, :subject, NOW(), 1)';
-    $statement = $db->prepare($query);
-    $statement->bindValue(':comments', $visitor_comments);
-    $statement->bindValue(':email', $visitor_email);
-    $statement->bindValue(':name', $visitor_name);
-    $statement->bindValue(':subject', $visitor_subject);
-    $statement->execute();
-    $statement->closeCursor();
+// Add the product to the database  
+//    $query = 'INSERT INTO visitor
+//                         (comments, email, name, subject, vist_date, userID)
+//                      VALUES
+//                         (:comments, :email, :name, :subject, NOW(), 1)';
+//    $statement = $db->prepare($query);
+//    $statement->bindValue(':comments', $visitor_comments);
+//    $statement->bindValue(':email', $visitor_email);
+//    $statement->bindValue(':name', $visitor_name);
+//    $statement->bindValue(':subject', $visitor_subject);
+//    $statement->execute();
+//    $statement->closeCursor();
     /* echo "Fields: " . $visitor_name . $visitor_email . $visitor_comments; */
+    adVisitor($visitor_comments, $visitor_email, $visitor_name, $visitor_subject);
 }
 ?>
 
@@ -75,9 +85,10 @@ if ($visitor_name == null || $visitor_email == null ||
     <body>
         <nav id="nav" class="hideNav">
             <ul class="navbar">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#about">About</a></li>
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="login.php">Admin</a></li>
             </ul>
         </nav>
         <div id="home">
