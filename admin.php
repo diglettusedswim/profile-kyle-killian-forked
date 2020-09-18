@@ -1,5 +1,13 @@
+<!-------MOD LOG-------------------------------
+---------DATE: 9/18/2020-----------------------
+---------Made admin.php------------------------
+---------moved code to the data base-----------
+---------to make functions---------------------
+---------Then connected to the functions------->
 <?php
-require_once('database.php');
+require_once('./database\database.php');
+require_once('./database\employee.php');
+require_once('./database\visitor.php');
 echo "Connection ok";
 
 // Get category ID
@@ -12,21 +20,23 @@ if (!isset($userID)) {
 }
 
 // Get all users
-$query = 'SELECT * FROM information ORDER BY userID';
-$statement = $db->prepare($query);
-$statement->execute();
-$users = $statement->fetchAll();
-$statement->closeCursor();
+//$query = 'SELECT * FROM information ORDER BY userID';
+//$statement = $db->prepare($query);
+//$statement->execute();
+//$users = $statement->fetchAll();
+//$statement->closeCursor();
 
+$users = getEmployees();
+$visitors = getVisitorByEmp($userID);
 // Get visitors for users
-$queryVisitors = 'SELECT * FROM visitor
-                  WHERE userID = :userID
-                  ORDER BY visitor_id';
-$statement3 = $db->prepare($queryVisitors);
-$statement3->bindValue(':userID', $userID);
-$statement3->execute();
-$visitors = $statement3->fetchAll();
-$statement3->closeCursor();
+//$queryVisitors = 'SELECT * FROM visitor
+//                  WHERE userID = :userID
+//                  ORDER BY visitor_id';
+//$statement3 = $db->prepare($queryVisitors);
+//$statement3->bindValue(':userID', $userID);
+//$statement3->execute();
+//$visitors = $statement3->fetchAll();
+//$statement3->closeCursor();
 //print_r($visitors);
 ?>
 
@@ -61,9 +71,10 @@ $statement3->closeCursor();
     <body>
         <nav id="nav" class="hideNav">
             <ul class="navbar">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#about">About</a></li>
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="login.php">Admin</a></li>
             </ul>
         </nav>
         <div id="home">
