@@ -8,7 +8,10 @@
 require_once('./database\database.php');
 require_once('./database\employee.php');
 require_once('./database\visitor.php');
-echo "Connection ok";
+
+require_once('./util\valid_admin.php');
+require_once('./util\secure_conn.php');
+//echo "Connection ok";
 
 // Get category ID
 if (!isset($userID)) {
@@ -19,25 +22,8 @@ if (!isset($userID)) {
     }
 }
 
-// Get all users
-//$query = 'SELECT * FROM information ORDER BY userID';
-//$statement = $db->prepare($query);
-//$statement->execute();
-//$users = $statement->fetchAll();
-//$statement->closeCursor();
-
 $users = getEmployees();
 $visitors = getVisitorByEmp($userID);
-// Get visitors for users
-//$queryVisitors = 'SELECT * FROM visitor
-//                  WHERE userID = :userID
-//                  ORDER BY visitor_id';
-//$statement3 = $db->prepare($queryVisitors);
-//$statement3->bindValue(':userID', $userID);
-//$statement3->execute();
-//$visitors = $statement3->fetchAll();
-//$statement3->closeCursor();
-//print_r($visitors);
 ?>
 
 <!DOCTYPE html>
@@ -95,7 +81,7 @@ $visitors = getVisitorByEmp($userID);
                         >
                     </span> 
                     <?php foreach ($users as $user) : ?>
-                        <li><a href="?userID=<?php echo $user['userID']; ?>">
+                    <li class="admin_li"><a href="?userID=<?php echo $user['userID']; ?>">
                                 <?php echo $user['first_name']; ?>
                             </a>
                         </li>
