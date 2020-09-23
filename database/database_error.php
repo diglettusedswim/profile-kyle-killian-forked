@@ -34,6 +34,7 @@
         <link rel="manifest" href="./favicon/site.webmanifest" />
         <title>Kyle Killian</title>
         <link href="../style.css" rel="stylesheet" type="text/css"/>
+        
     </head>
     <body>
         <nav id="nav" class="hideNav">
@@ -60,5 +61,5 @@
             </div>
         </div>
     </body>
-    <script src="main.js"></script>
+    <script src="../main.js" type="text/javascript"></script>
 </html>
